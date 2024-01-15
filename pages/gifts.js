@@ -97,13 +97,24 @@ export default function Home() {
             value={hobbies}
             onChange={(e) => setHobbies(e.target.value)}
           />
-          <input type="submit" value="Generate gift ideas" />
+          <input type="submit"  value="Generate gift ideas" data-toggle="modal" data-target="#exampleModalCenter" />
         </form>
         {loading && (
-          <div>
-            <h3>Searching for the best 🎁 💡</h3>
-            <img src="/loading.gif" className={styles.loading} />
+          <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="loadingTitle">Searching for the best 🎁 💡</h3>
+              </div>
+              <div class="modal-body">
+              <img src="/loading.gif" class={styles.loading} />
+              </div>
+              <div class="modal-footer">
+               
+              </div>
+            </div>
           </div>
+        </div>
         )}
         {result && (
           <div
@@ -115,3 +126,5 @@ export default function Home() {
     </div>
   );
 }
+
+
